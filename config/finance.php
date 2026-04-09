@@ -21,6 +21,7 @@ return [
         ['name' => 'Rent / Housing', 'slug' => 'rent', 'type' => 'expense', 'color' => '#f97316'],
         ['name' => 'Travel', 'slug' => 'travel', 'type' => 'expense', 'color' => '#8b5cf6'],
         ['name' => 'Utilities', 'slug' => 'utilities', 'type' => 'expense', 'color' => '#06b6d4'],
+        ['name' => 'Entertainment', 'slug' => 'entertainment', 'type' => 'expense', 'color' => '#ec4899'],
         ['name' => 'Healthcare', 'slug' => 'healthcare', 'type' => 'expense', 'color' => '#14b8a6'],
         ['name' => 'Shopping', 'slug' => 'shopping', 'type' => 'expense', 'color' => '#eab308'],
         ['name' => 'Other expense', 'slug' => 'other-expense', 'type' => 'expense', 'color' => '#64748b'],
