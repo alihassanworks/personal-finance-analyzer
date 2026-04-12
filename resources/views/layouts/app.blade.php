@@ -27,21 +27,21 @@
                     <a href="{{ route('categories.thresholds') }}" class="rounded-lg px-3 py-2 text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800 {{ request()->routeIs('categories.thresholds*') ? 'bg-indigo-50 text-indigo-700 dark:bg-indigo-950/50 dark:text-indigo-300' : '' }}">Budgets</a>
                 </nav>
                 <div class="flex flex-wrap items-center gap-2">
-                    <form action="" method="post" class="inline">
+                    <form action="{{ route('user.theme') }}" method="post" class="inline">
                         @csrf
                         @method('PATCH')
                         @if(auth()->user()->prefersDarkMode())
                             <input type="hidden" name="theme" value="light">
-                            <button type="submit" class="rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-medium text-slate-600 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800">Light mode</button>
+                            <button type="submit" class="rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-medium text-slate-600 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800 cursor-pointer">Light mode</button>
                         @else
                             <input type="hidden" name="theme" value="dark">
-                            <button type="submit" class="rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-medium text-slate-600 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800">Dark mode</button>
+                            <button type="submit" class="rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-medium text-slate-600 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800 cursor-pointer">Dark mode</button>
                         @endif
                     </form>
                     <span class="hidden text-sm text-slate-500 dark:text-slate-400 sm:inline">{{ auth()->user()->name }}</span>
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
-                        <button type="submit" class="rounded-lg bg-slate-900 px-3 py-1.5 text-xs font-medium text-white hover:bg-slate-800 dark:bg-indigo-600 dark:hover:bg-indigo-500">Log out</button>
+                        <button type="submit" class="rounded-lg bg-slate-900 px-3 py-1.5 text-xs font-medium text-white hover:bg-slate-800 dark:bg-indigo-600 dark:hover:bg-indigo-500 cursor-pointer">Log out</button>
                     </form>
                 </div>
             </div>

@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryThresholdController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\TransactionCsvImportController;
+use App\Http\Controllers\UserThemeController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -32,4 +33,6 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/categories/thresholds', [CategoryThresholdController::class, 'index'])->name('categories.thresholds');
     Route::put('/categories/thresholds', [CategoryThresholdController::class, 'update'])->name('categories.thresholds.update');
+
+    Route::patch('/user/theme', [UserThemeController::class, 'update'])->name('user.theme');
 });
