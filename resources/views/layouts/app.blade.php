@@ -23,6 +23,7 @@
                 <nav class="flex flex-wrap items-center gap-1 text-sm font-medium">
                     <a href="{{ route('dashboard') }}" class="rounded-lg px-3 py-2 text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800 {{ request()->routeIs('dashboard') ? 'bg-indigo-50 text-indigo-700 dark:bg-indigo-950/50 dark:text-indigo-300' : '' }}">Dashboard</a>
                     <a href="{{ route('transactions.index') }}" class="rounded-lg px-3 py-2 text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800 {{ request()->routeIs('transactions.*') && ! request()->routeIs('transactions.import') ? 'bg-indigo-50 text-indigo-700 dark:bg-indigo-950/50 dark:text-indigo-300' : '' }}">Transactions</a>
+                                        <a href="{{ route('categories.thresholds') }}" class="rounded-lg px-3 py-2 text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800 {{ request()->routeIs('categories.thresholds*') ? 'bg-indigo-50 text-indigo-700 dark:bg-indigo-950/50 dark:text-indigo-300' : '' }}">Budgets</a>
                 </nav>
                 <div class="flex flex-wrap items-center gap-2">
                     <form action="" method="post" class="inline">
