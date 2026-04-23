@@ -16,13 +16,26 @@
 
     <form method="GET" action="{{ route('dashboard') }}" class="mb-8 flex flex-wrap items-end gap-4 rounded-2xl border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900">
         <div>
+            <label for="range" class="block text-xs font-medium uppercase tracking-wide text-slate-500 dark:text-slate-400">Date range</label>
+            <select
+                id="range"
+                name="range"
+                onchange="this.form.submit()"
+                class="mt-1 min-w-[200px] rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm dark:border-slate-600 dark:bg-slate-800 dark:text-white"
+            >
+                @foreach ($rangeOptions as $value => $label)
+                    <option value="{{ $value }}" @selected($rangeKey === $value)>{{ $label }}</option>
+                @endforeach
+            </select>
+        </div>
+        <div>
             <label for="from" class="block text-xs font-medium uppercase tracking-wide text-slate-500 dark:text-slate-400">From</label>
-            <input type="date" id="from" name="from" value="{{ $from }}"
+            <input type="date" id="from" name="from" value="{{ $from }}" onchange="document.getElementById('range').value = 'custom'"
                 class="mt-1 rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm dark:border-slate-600 dark:bg-slate-800 dark:text-white">
         </div>
         <div>
             <label for="to" class="block text-xs font-medium uppercase tracking-wide text-slate-500 dark:text-slate-400">To</label>
-            <input type="date" id="to" name="to" value="{{ $to }}"
+            <input type="date" id="to" name="to" value="{{ $to }}" onchange="document.getElementById('range').value = 'custom'"
                 class="mt-1 rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm dark:border-slate-600 dark:bg-slate-800 dark:text-white">
         </div>
         <div>
