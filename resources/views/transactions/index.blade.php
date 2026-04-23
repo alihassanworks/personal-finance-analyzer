@@ -13,16 +13,29 @@
 
     <form method="GET" class="mb-6 flex flex-wrap items-end gap-4 rounded-2xl border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900">
         <div>
+            <label class="block text-xs font-medium uppercase text-slate-500 dark:text-slate-400">Date range</label>
+            <select
+                id="range-filter"
+                name="range"
+                onchange="this.form.submit()"
+                class="mt-1 min-w-50 rounded-lg border border-slate-300 px-3 py-2 text-sm dark:border-slate-600 dark:bg-slate-800 dark:text-white"
+            >
+                @foreach ($rangeOptions as $value => $label)
+                    <option value="{{ $value }}" @selected($rangeKey === $value)>{{ $label }}</option>
+                @endforeach
+            </select>
+        </div>
+        <div>
             <label class="block text-xs font-medium uppercase text-slate-500 dark:text-slate-400">From</label>
-            <input type="date" name="from" value="{{ $from }}" class="mt-1 rounded-lg border border-slate-300 px-3 py-2 text-sm dark:border-slate-600 dark:bg-slate-800 dark:text-white">
+            <input type="date" name="from" value="{{ $from }}" onchange="document.getElementById('range-filter').value = 'custom'" class="mt-1 rounded-lg border border-slate-300 px-3 py-2 text-sm dark:border-slate-600 dark:bg-slate-800 dark:text-white">
         </div>
         <div>
             <label class="block text-xs font-medium uppercase text-slate-500 dark:text-slate-400">To</label>
-            <input type="date" name="to" value="{{ $to }}" class="mt-1 rounded-lg border border-slate-300 px-3 py-2 text-sm dark:border-slate-600 dark:bg-slate-800 dark:text-white">
+            <input type="date" name="to" value="{{ $to }}" onchange="document.getElementById('range-filter').value = 'custom'" class="mt-1 rounded-lg border border-slate-300 px-3 py-2 text-sm dark:border-slate-600 dark:bg-slate-800 dark:text-white">
         </div>
         <div>
             <label class="block text-xs font-medium uppercase text-slate-500 dark:text-slate-400">Category</label>
-            <select name="category_id" class="mt-1 min-w-[180px] rounded-lg border border-slate-300 px-3 py-2 text-sm dark:border-slate-600 dark:bg-slate-800 dark:text-white">
+            <select name="category_id" class="mt-1 min-w-45 rounded-lg border border-slate-300 px-3 py-2 text-sm dark:border-slate-600 dark:bg-slate-800 dark:text-white">
                 <option value="">All</option>
                 @foreach ($expenseCategories as $cat)
                     <option value="{{ $cat->id }}" @selected((string) $filterCategoryId === (string) $cat->id)>{{ $cat->name }} ({{ $cat->type }})</option>
